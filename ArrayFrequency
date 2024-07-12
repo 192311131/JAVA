@@ -1,0 +1,15 @@
+import java.util.HashMap;
+public class ArrayFrequency {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 8, 3, 2, 2, 2, 5, 1};
+        HashMap<Integer, Integer> frequencyMap = new HashMap<>();
+        for (int num : array) {
+            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+        }
+        System.out.println("Element | Frequency");
+        System.out.println("--------------------------");
+        for (int key : frequencyMap.keySet()) {
+            System.out.println(key + "       |       " + frequencyMap.get(key));
+        }
+    }
+}
