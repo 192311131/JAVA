@@ -1,0 +1,11 @@
+import java.text.DecimalFormat;
+public class SquareCubeOfDecimalNumber {
+    public static void main(String[] args) {
+        double givenNumber = 0.6;      
+        double squareNumber = givenNumber * givenNumber;
+        double cubeNumber = givenNumber * givenNumber * givenNumber;     
+        DecimalFormat df = new DecimalFormat("#.###");    
+        System.out.println("Square Number: " + df.format(squareNumber));
+        System.out.println("Cube Number: " + df.format(cubeNumber));
+    }
+}
