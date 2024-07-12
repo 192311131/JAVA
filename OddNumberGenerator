@@ -1,0 +1,14 @@
+public class OddNumberGenerator {
+    public static void main(String[] args) {
+        int n = 7;
+        int count = 0;
+        int i = 1;
+        while (count < n-4) {
+            if (i % 2 != 0) {
+                System.out.print(i + " ");
+                count++;
+            }
+            i++;
+        }
+    }
+}
