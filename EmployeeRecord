@@ -1,0 +1,21 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class EmployeeRecord {
+    public static void main(String[] args) {
+        Map<Integer, String> employeeMap = new HashMap<>();
+
+        // Add object
+        employeeMap.put(1, "John Doe");
+        employeeMap.put(2, "Jane Smith");
+
+        // Check if the map is empty
+        System.out.println("Is the employee map empty? " + employeeMap.isEmpty());
+
+        // Remove specified object
+        employeeMap.remove(1);
+
+        // Clear the map
+        employeeMap.clear();
+    }
+}
