@@ -1,0 +1,28 @@
+class Superclass {
+    int num1;
+    public Superclass(int num1) {
+        this.num1 = num1;
+    }
+}
+class Subclass extends Superclass {
+    int num2;
+    public Subclass(int num1, int num2) {
+        super(num1);
+        this.num2 = num2;
+    }
+    public void displayValues() {
+        System.out.println("Input values provided: " + num1 + ", " + num2);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Subclass obj1 = new Subclass(10, 20);
+        obj1.displayValues();
+        Subclass obj2 = new Subclass(-20, -30);
+        obj2.displayValues();
+        Subclass obj3 = new Subclass(0, 0);
+        obj3.displayValues();
+        Subclass obj5 = new Subclass(10, 12);
+        obj5.displayValues();
+    }
+}
