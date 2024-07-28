@@ -1,0 +1,22 @@
+public class FibonacciThread implements Runnable {
+    private int count;
+    public FibonacciThread(int count) {
+        this.count = count;
+    }
+    @Override
+    public void run() {
+        int a = 0, b = 1;
+        System.out.print(a + " " + b + " ");
+        for (int i = 2; i < count; i++) {
+            int c = a + b;
+            System.out.print(c + " ");
+            a = b;
+            b = c;
+        }
+    }
+    public static void main(String[] args) {
+        FibonacciThread fibonacciThread = new FibonacciThread(5);
+        Thread thread = new Thread(fibonacciThread);
+        thread.start();
+    }
+}
