@@ -1,0 +1,17 @@
+import java.util.*;
+
+public class ListIteratorExample {
+    public static void main(String[] args) {
+        List<String> elements = new ArrayList<>(Arrays.asList("C", "A", "E", "B", "D", "F"));
+        
+        ListIterator<String> iterator = elements.listIterator();
+        while (iterator.hasNext()) {
+            String element = iterator.next();
+            iterator.set(element + "+");
+        }
+        
+        while (iterator.hasPrevious()) {
+            System.out.println(iterator.previous());
+        }
+    }
+}
