@@ -1,0 +1,42 @@
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class FileCopy {
+    public static void main(String[] args) {
+        // Specify the source and destination file paths
+        String sourceFilePath = "source.txt";
+        String destinationFilePath = "destination.txt";
+
+        // Call the copyFile method to copy data from source to destination
+        try {
+            copyFile(sourceFilePath, destinationFilePath);
+            System.out.println("File copied successfully.");
+        } catch (IOException e) {
+            System.out.println("An error occurred during file copying.");
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Copies data from a source file to a destination file.
+     *
+     * @param sourceFilePath      Path to the source file
+     * @param destinationFilePath Path to the destination file
+     * @throws IOException If an I/O error occurs
+     */
+    public static void copyFile(String sourceFilePath, String destinationFilePath) throws IOException {
+        // Use try-with-resources to ensure streams are closed properly
+        try (FileInputStream inputStream = new FileInputStream(sourceFilePath);
+             FileOutputStream outputStream = new FileOutputStream(destinationFilePath)) {
+
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+
+            // Read from source file and write to destination file
+            while ((bytesRead = inputStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, bytesRead);
+            }
+        }
+    }
+}
