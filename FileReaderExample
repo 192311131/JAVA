@@ -1,0 +1,22 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class FileReaderExample {
+    public static void main(String[] args) {
+        // The path to the file to be read
+        String filePath = "example.txt";
+
+        // Create BufferedReader object
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            // Read the file line by line
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            // Handle exceptions that may occur during file operations
+            System.err.println("An IOException occurred: " + e.getMessage());
+        }
+    }
+}
