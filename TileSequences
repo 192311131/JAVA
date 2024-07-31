@@ -1,0 +1,30 @@
+import java.util.*;
+public class TileSequences {
+    public static int numTilePossibilities(String tiles) {
+        Map<Character, Integer> freqMap = new HashMap<>();
+        for (char tile : tiles.toCharArray()) {
+            freqMap.put(tile, freqMap.getOrDefault(tile, 0) + 1);
+        }        
+        Set<String> resultSet = new HashSet<>();
+        backtrack(freqMap, new StringBuilder(), resultSet);        
+        return resultSet.size();
+    }    
+    private static void backtrack(Map<Character, Integer> freqMap, StringBuilder current, Set<String> resultSet) {
+        for (Map.Entry<Character, Integer> entry : freqMap.entrySet()) {
+            char tile = entry.getKey();
+            int count = entry.getValue();           
+            if (count > 0) {
+                current.append(tile);
+                resultSet.add(current.toString());
+                freqMap.put(tile, count - 1);
+                backtrack(freqMap, current, resultSet);
+                freqMap.put(tile, count);
+                current.deleteCharAt(current.length() - 1);
+            }
+        }
+    }    
+    public static void main(String[] args) {
+        String tiles = "AAB";
+        System.out.println(numTilePossibilities(tiles)); // Output: 8
+    }
+}
