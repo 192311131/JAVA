@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class ProvidentFundCalculator {
+
+    // Method to calculate the interest
+    public static double calculateInterest(double principal, double rate, int years) {
+        return principal * rate * years / 100;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = null;
+        
+        try {
+            // Initialize the scanner
+            scanner = new Scanner(System.in);
+            
+            // Input principal amount
+            System.out.print("Enter the principal amount (in dollars): ");
+            double principal = scanner.nextDouble();
+            
+            // Input rate of interest
+            System.out.print("Enter the annual rate of interest (in percentage): ");
+            double rate = scanner.nextDouble();
+            
+            // Input number of years
+            System.out.print("Enter the number of years: ");
+            int years = scanner.nextInt();
+            
+            // Calculate the interest
+            double interest = calculateInterest(principal, rate, years);
+            System.out.printf("The total interest accrued over %d years is: $%.2f%n", years, interest);
+            
+        } catch (Exception e) {
+            // Handle potential exceptions, such as input mismatch
+            System.out.println("Invalid input. Please enter numerical values.");
+        } finally {
+            // Ensure the scanner is closed to prevent resource leaks
+            if (scanner != null) {
+                scanner.close();
+            }
+        }
+    }
+}
