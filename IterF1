@@ -1,0 +1,50 @@
+// Define the IterF1 interface with two methods: add and sub
+interface IterF1 {
+    void add(int a, int b);
+    void sub(int a, int b);
+}
+
+// Implement the IterF1 interface in a class
+class Operations implements IterF1 {
+    
+    // Overloaded add method for two integers
+    @Override
+    public void add(int a, int b) {
+        int result = a + b;
+        System.out.println("Addition result (two integers): " + result);
+    }
+    
+    // Overloaded add method for three integers
+    public void add(int a, int b, int c) {
+        int result = a + b + c;
+        System.out.println("Addition result (three integers): " + result);
+    }
+
+    // Overloaded sub method for two integers
+    @Override
+    public void sub(int a, int b) {
+        int result = a - b;
+        System.out.println("Subtraction result (two integers): " + result);
+    }
+
+    // Overloaded sub method for three integers
+    public void sub(int a, int b, int c) {
+        int result = a - b - c;
+        System.out.println("Subtraction result (three integers): " + result);
+    }
+}
+
+// Main class to test the implementation
+public class Main {
+    public static void main(String[] args) {
+        Operations ops = new Operations();
+        
+        // Test the add method
+        ops.add(10, 5);      // Addition with two integers
+        ops.add(10, 5, 3);   // Addition with three integers
+        
+        // Test the sub method
+        ops.sub(10, 5);      // Subtraction with two integers
+        ops.sub(10, 5, 2);   // Subtraction with three integers
+    }
+}
