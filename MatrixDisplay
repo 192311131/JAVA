@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class MatrixDisplay {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Input the size of the matrix
+        System.out.print("Enter the size of the NxN matrix (N): ");
+        int N = scanner.nextInt();
+        
+        // Create a 2D array to store the matrix
+        int[][] matrix = new int[N][N];
+        
+        // Input elements of the matrix
+        System.out.println("Enter the elements of the matrix:");
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                System.out.print("Element [" + i + "][" + j + "]: ");
+                matrix[i][j] = scanner.nextInt();
+            }
+        }
+        
+        // Display the matrix row-wise
+        System.out.println("\nMatrix (row-wise):");
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+        
+        // Display the matrix column-wise
+        System.out.println("\nMatrix (column-wise):");
+        for (int j = 0; j < N; j++) {
+            for (int i = 0; i < N; i++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+        
+        // Close the scanner
+        scanner.close();
+    }
+}
